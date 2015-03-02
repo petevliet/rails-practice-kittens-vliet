@@ -1,6 +1,7 @@
-class Categorization < ApplicationController
+class CategorizationsController < ApplicationController
 
   def new
+    @kitten = Kitten.find(params[:kitten_id])
     @categorization = Categorization.new
   end
 

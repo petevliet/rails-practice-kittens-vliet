@@ -1,3 +1,5 @@
 <div class="kitten">
-  <%= image_tag kitten.image %>
+<% @kittens.each do |kitten| %>
+  <%= link_to image_tag(kitten.image), new_kitten_categorization_path(kitten) %>
+<% end %>
 </div>
