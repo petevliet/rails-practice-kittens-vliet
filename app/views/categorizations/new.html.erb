@@ -1,11 +1,23 @@
 <h1>Categorize</h1>
+
+<% if @categorization.errors.any? %>
+<% @categorization.errors.full_messages.each do |message| %>
+<div class="errors">
+<%= message %>
+<% end %>
+</div>
+<br>
+<br>
+<% end %>
+
+
   <div class="kitten-container">
     <%= image_tag @kitten.image %>
   </div>
   <div class="col-md-3">
     <%= form_for [@kitten, @categorization] do |f| %>
 
-    <%= f.collection_select :category_id, Category.all, :id, :name, {include_blank: true}, {class: "form-control"} %>
+    <%= f.collection_select :category_id, Category.all.sort_by{ |c| c.name}, :id, :name, {include_blank: true}, {class: "form-control"} %>
 
     <%= f.submit 'Add Category' %>
 
