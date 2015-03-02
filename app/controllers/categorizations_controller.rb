@@ -13,6 +13,8 @@ class CategorizationsController < ApplicationController
 
     if @categorization.save
       redirect_to root_path
+    else
+      render :new
     end
   end
 

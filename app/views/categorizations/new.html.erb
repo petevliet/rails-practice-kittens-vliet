@@ -1,1 +1,13 @@
-<h1>kittens!</h1>
+<h1>Categorize</h1>
+  <div class="kitten-container">
+    <%= image_tag @kitten.image %>
+  </div>
+  <div class="col-md-3">
+    <%= form_for [@kitten, @categorization] do |f| %>
+
+    <%= f.collection_select :category_id, Category.all, :id, :name, {include_blank: true}, {class: "form-control"} %>
+
+    <%= f.submit 'Add Category' %>
+
+    <% end %>
+  </div>
